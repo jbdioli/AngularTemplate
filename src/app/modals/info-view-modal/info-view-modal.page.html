@@ -1,0 +1,30 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-button (click)="onCancel()" fill="clear" color="medium">
+        <ion-icon name="close-outline"></ion-icon>
+        Cancel
+      </ion-button>
+    </ion-buttons>
+    <ion-title>Info Details view</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+
+  <ion-slides class="ionSlide" [options]="sliderOpts" #sliderRef>
+    <ion-slide *ngFor="let infoDetails of infosDetails; let idx = index">
+      <ion-list>
+        <ion-item>
+          <ion-label>{{infoDetails.name}}</ion-label>
+        </ion-item>
+        <ion-item>
+          <ion-label>{{infoDetails.description}}</ion-label>
+        </ion-item>
+      </ion-list>
+    </ion-slide>
+  </ion-slides>
+
+
+
+</ion-content>
