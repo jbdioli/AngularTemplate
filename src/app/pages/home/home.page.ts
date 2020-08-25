@@ -18,12 +18,12 @@ export class HomePage implements OnInit {
 
   constructor(
     private modalController: ModalController,
-    private strorage: CoreDataStorageService
+    private storage: CoreDataStorageService
     ) { }
 
   ngOnInit() {
-    this.strorage.getInfo();
-    this.obsSub = this.strorage.infoSubject.subscribe((response: InfosModel) => {
+    this.storage.getInfo();
+    this.obsSub = this.storage.infoSubject.subscribe((response: InfosModel) => {
       this.infosDetails = response;
       console.log('resp ', response);
     });
@@ -42,8 +42,8 @@ export class HomePage implements OnInit {
   }
 
 
-  onClick() {
-    this.infoView(this.infosDetails, 2);
+  onClick(value: number) {
+    this.infoView(this.infosDetails, value);
   }
 
 }
