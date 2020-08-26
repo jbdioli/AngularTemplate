@@ -28,7 +28,7 @@ export class InfoViewModalPage implements OnInit {
 
 
   sliderOpts = {
-    initialSlide: this.position,
+    initialSlide: null,
     centeredSlides: true,
     passiveListeners: false,
   };
