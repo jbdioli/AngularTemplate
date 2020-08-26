@@ -22,11 +22,11 @@ export class HomePage implements OnInit {
     ) { }
 
   ngOnInit() {
-    this.storage.getInfo();
     this.obsSub = this.storage.infoSubject.subscribe((response: InfosModel) => {
       this.infosDetails = response;
-      console.log('resp ', response);
     });
+
+    this.storage.getInfo();
 
   }
 
@@ -42,8 +42,9 @@ export class HomePage implements OnInit {
   }
 
 
-  onClick(value: number) {
-    this.infoView(this.infosDetails, value);
+  onClick(index: number, type: string) {
+    this.infosDetails.type = type;
+    this.infoView(this.infosDetails, index);
   }
 
 }

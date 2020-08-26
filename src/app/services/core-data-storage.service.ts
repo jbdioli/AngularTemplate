@@ -11,19 +11,17 @@ export class CoreDataStorageService {
   infoSubject = new Subject<InfosModel>();
 
   private dataList: InfoModel[] = [
-    {name: 'Lundi', description: 'Ensoleillé'},
-    {name: 'Mardi', description: 'Ensoleillé'},
-    {name: 'Mercredi', description: 'Ensoleillé'},
-    {name: 'Jeudi', description: 'Ensoleillé'},
-    {name: 'Vendredi', description: 'Nuageux'},
-    {name: 'Samedi', description: 'Ensoleillé'},
-    {name: 'Dimanche', description: 'Pluie'}
+    {name: 'Lundi', description: 'Ensoleillé', city: 'Nice', country: 'France'},
+    {name: 'Mardi', description: 'Ensoleillé', city: 'Nice', country: 'France'},
+    {name: 'Mercredi', description: 'Ensoleillé', city: 'Nice', country: 'France'},
+    {name: 'Jeudi', description: 'Ensoleillé', city: 'Nice', country: 'France'},
+    {name: 'Vendredi', description: 'Nuageux', city: 'Nice', country: 'France'},
+    {name: 'Samedi', description: 'Ensoleillé', city: 'Nice', country: 'France'},
+    {name: 'Dimanche', description: 'Pluie', city: 'Nice', country: 'France'}
   ];
 
   private datas: InfosModel = {
-    isBasic: true,
-    isAdvance: false,
-    isFull: false,
+    type: null,
     infos: this.dataList};
 
   constructor() { }
