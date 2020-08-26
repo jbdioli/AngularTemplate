@@ -44,6 +44,7 @@ export class InfoViewModalPage implements OnInit {
   }
 
 
+
   // Show the correct block
   displayBlock(type: string) {
 
@@ -53,10 +54,6 @@ export class InfoViewModalPage implements OnInit {
     console.log('displayBlock type / isCases : ', type, this.isCases);
 
     switch (type) {
-      case 'basic':
-        this.cases = this.basicTemplate;
-        console.log('basic template', this.cases, this.advancedTemplate);
-        break;
       case 'advanced':
         this.cases = this.advancedTemplate;
         console.log('advanced template', this.cases, this.advancedTemplate);
