@@ -10,13 +10,9 @@ import { InfosModel } from 'src/app/Models/infos.model';
 export class InfoViewModalPage implements OnInit {
   cases: TemplateRef<any> | null = null;
 
-  @ViewChild('basicTemplate', { static: true })
-  basicTemplate: TemplateRef<any> | null = null;
-  @ViewChild('advancedTemplate', { static: true })
-  advancedTemplate: TemplateRef<any> | null = null;
-  @ViewChild('fullTemplate', { static: true })
-  fullTemplate: TemplateRef<any> | null = null;
-
+  @ViewChild('basicTemplate', { static: true }) basicTemplate: TemplateRef<any> | null = null;
+  @ViewChild('advancedTemplate', { static: true }) advancedTemplate: TemplateRef<any> | null = null;
+  @ViewChild('fullTemplate', { static: true }) fullTemplate: TemplateRef<any> | null = null;
 
   @ViewChild('sliderRef', { static: true }) protected sliderRef: IonSlides;
 
@@ -35,8 +31,7 @@ export class InfoViewModalPage implements OnInit {
 
   constructor(
     private navParamsPage: NavParams,
-    private modalController: ModalController,
-
+    private modalController: ModalController
   ) { }
 
   ngOnInit() {
@@ -58,6 +53,10 @@ export class InfoViewModalPage implements OnInit {
     console.log('displayBlock type / isCases : ', type, this.isCases);
 
     switch (type) {
+      case 'basic':
+        this.cases = this.basicTemplate;
+        console.log('basic template', this.cases, this.advancedTemplate);
+        break;
       case 'advanced':
         this.cases = this.advancedTemplate;
         console.log('advanced template', this.cases, this.advancedTemplate);
@@ -68,6 +67,7 @@ export class InfoViewModalPage implements OnInit {
         break;
     }
   }
+
 
   onCancel() {
     this.modalController.dismiss();
