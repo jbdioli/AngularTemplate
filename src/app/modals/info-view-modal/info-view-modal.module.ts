@@ -7,6 +7,9 @@ import { IonicModule } from '@ionic/angular';
 import { InfoViewModalPageRoutingModule } from './info-view-modal-routing.module';
 
 import { InfoViewModalPage } from './info-view-modal.page';
+import { AdvancedComponent } from 'src/app/components/advanced/advanced.component';
+import { FullComponent } from 'src/app/components/full/full.component';
+import { BasicComponent } from 'src/app/components/basic/basic.component';
 
 @NgModule({
   imports: [
@@ -15,6 +18,13 @@ import { InfoViewModalPage } from './info-view-modal.page';
     IonicModule,
     InfoViewModalPageRoutingModule
   ],
-  declarations: [InfoViewModalPage]
+  declarations: [
+    InfoViewModalPage,
+
+    // Components
+    BasicComponent,
+    AdvancedComponent,
+    FullComponent
+  ]
 })
 export class InfoViewModalPageModule {}

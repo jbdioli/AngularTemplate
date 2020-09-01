@@ -30,6 +30,7 @@ export class HomePage implements OnInit {
 
   }
 
+
   async infoView(datas: any, index: number) {
     const myModal = await this.modalController.create({
       component: InfoViewModalPage,
