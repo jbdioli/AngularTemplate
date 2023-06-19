@@ -12,10 +12,10 @@
 
 <ion-content>
 
-  <ion-slides class="ionSlide" [options]="sliderOpts" #sliderRef>
+  <!-- <ion-slides class="ionSlide" [options]="sliderOpts" #sliderRef >
   
     <ion-slide *ngFor="let infoDetails of infosDetails.infos; let idx = index">
-      <div  #queryListTemplate>
+      <div  #templateList>
         test
       </div>
       <span *ngIf="isCases; then cases else basicTemplate"></span>
@@ -31,6 +31,33 @@
         <app-full [infoDetails]="infosDetails.infos[position]"></app-full>
       </ng-template>
     </ion-slide>
+  </ion-slides> -->
+
+  <!-- Solution 1 -->
+  <ion-slides class="ionSlide" [options]="sliderOpts" #sliderRef>
+    <ion-slide *ngFor="let infoDetails of infosDetails.infos; let idx = index">
+      <span [ngSwitch]="infosDetails.type">
+        <app-basic *ngSwitchCase="'basic'" [infoDetails]="infosDetails.infos[idx]"></app-basic>
+        <app-advanced *ngSwitchCase="'advanced'" [infoDetails]="infosDetails.infos[idx]"></app-advanced>
+        <app-full *ngSwitchCase="'full'" [infoDetails]="infosDetails.infos[idx]"></app-full>
+      </span>
+    </ion-slide>
   </ion-slides>
 
+  <!-- Solution 2 -->
+  <!-- <ion-slides class="ionSlide" [options]="sliderOpts" #sliderRef>
+    <ion-slide *ngFor="let infoDetails of infosDetails.infos; let idx = index">
+      <span [ngSwitch]="infosDetails.type">
+        <ng-container *ngSwitchCase="'basic'" >
+          <app-basic *ngSwitchCase="'basic'" [infoDetails]="infosDetails.infos[idx]"></app-basic>
+        </ng-container>
+        <ng-container *ngSwitchCase="'advanced'" >
+          <app-advanced [infoDetails]="infosDetails.infos[idx]"></app-advanced>
+        </ng-container>
+        <ng-container *ngSwitchCase="'full'" >
+          <app-full [infoDetails]="infosDetails.infos[idx]"></app-full>
+        </ng-container>
+      </span>
+    </ion-slide>
+  </ion-slides> -->
 </ion-content>
